@@ -1,7 +1,7 @@
 FROM ghcr.io/epicgames/unreal-engine:dev-4.27 as builder
 
 # Clone the source code for the example Unreal project from github
-RUN git clone --progress --depth=1 'YOUR_GITHUB_REPO'  /tmp/UE4-PixelStreaming-demo && mv /tmp/UE4-PixelStreaming-demo/FirstProject /tmp/project
+RUN git clone --progress --depth=1 'YOUR_GITHUB_REPO'  /tmp/YOUR_PROJECT && mv /tmp/YOUR_PROJECT /tmp/project
 
 
 
