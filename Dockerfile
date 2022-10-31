@@ -9,7 +9,7 @@ RUN git clone --progress --depth=1 'YOUR_GITHUB_REPO'  /tmp/YOUR_PROJECT && mv /
 # Package the example Unreal project
 RUN /home/ue4/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun \
 	-clientconfig=Development -serverconfig=Development \
-	-project=/tmp/project/FirstPersonProject.uproject \
+	-project=/tmp/project/YOUR_PROJECT.uproject \
 	-utf8output -nodebuginfo -allmaps -noP4 -cook -build -stage -prereqs -pak -archive \
 	-archivedirectory=/tmp/project/dist \
 	-platform=Linux
@@ -20,4 +20,4 @@ COPY --from=builder --chown=ue4:ue4 /tmp/project/dist/LinuxNoEditor /home/ue4/pr
 
 
 # Set the project as the container's entrypoint
-ENTRYPOINT ["/home/ue4/project/FirstProject.sh", "-RenderOffscreen", "-RenderOffscreen", "-AllowPixelStreamingCommands" ,"-PixelStreamingHideCursor" ,"-PixelStreamingWebRTCMaxFps=30", "-PixelStreamingWebRTCDisableReceiveAudio","-FullStdOutLogOutput", "-ForceRes", "-ResX=1920", "-ResY=1080"]
+ENTRYPOINT ["/home/ue4/project/YOUR_PROJECT.sh", "-RenderOffscreen", "-RenderOffscreen", "-AllowPixelStreamingCommands" ,"-PixelStreamingHideCursor" ,"-PixelStreamingWebRTCMaxFps=30", "-PixelStreamingWebRTCDisableReceiveAudio","-FullStdOutLogOutput", "-ForceRes", "-ResX=1920", "-ResY=1080"]
