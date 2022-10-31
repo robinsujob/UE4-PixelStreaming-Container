@@ -1,7 +1,7 @@
 FROM ghcr.io/epicgames/unreal-engine:dev-4.27 as builder
 
 # Clone the source code for the example Unreal project from github
-RUN git clone --progress --depth=1 'https://github.com/stevensu1977/UE4-PixelStreaming-demo'  /tmp/UE4-PixelStreaming-demo && mv /tmp/UE4-PixelStreaming-demo/FirstPersonProject /tmp/project
+RUN git clone --progress --depth=1 'YOUR_GITHUB_REPO'  /tmp/UE4-PixelStreaming-demo && mv /tmp/UE4-PixelStreaming-demo/FirstProject /tmp/project
 
 
 
@@ -20,4 +20,4 @@ COPY --from=builder --chown=ue4:ue4 /tmp/project/dist/LinuxNoEditor /home/ue4/pr
 
 
 # Set the project as the container's entrypoint
-ENTRYPOINT ["/home/ue4/project/FirstPersonProject.sh", "-RenderOffscreen", "-RenderOffscreen", "-AllowPixelStreamingCommands" ,"-PixelStreamingHideCursor" ,"-PixelStreamingWebRTCMaxFps=30", "-PixelStreamingWebRTCDisableReceiveAudio","-FullStdOutLogOutput", "-ForceRes", "-ResX=1920", "-ResY=1080"]
+ENTRYPOINT ["/home/ue4/project/FirstProject.sh", "-RenderOffscreen", "-RenderOffscreen", "-AllowPixelStreamingCommands" ,"-PixelStreamingHideCursor" ,"-PixelStreamingWebRTCMaxFps=30", "-PixelStreamingWebRTCDisableReceiveAudio","-FullStdOutLogOutput", "-ForceRes", "-ResX=1920", "-ResY=1080"]
