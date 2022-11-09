@@ -4,17 +4,17 @@ This is UE4 Workshop needs container resource ,include: Dockerfile, docker-compo
 ### Build image
 
 ```
-./tools build 
+./tools.sh build 
 ```
 
 ### Run Image
 ```
-./tools start 
+./tools.sh start 
 ```
 
 ### Stop Image
 ```
-./tools stop 
+./tools.sh stop 
 ```
 
 ### Multi Project Run
